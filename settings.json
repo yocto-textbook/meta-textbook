@@ -1,0 +1,18 @@
+{
+    "files.watcherExclude": {
+    "**/tmp/**": true,
+    "**/sstate-cache/**": true,
+    "**/downloads/**": true,
+    "**/build/**": true
+    },
+    "search.exclude": {
+    "**/tmp/**": true,
+    "**/sstate-cache/**": true,
+    "**/downloads/**": true,
+    "**/build/**": true
+    },
+    "bitbake.pathToBuildFolder": "${workspaceFolder}/build",
+    "bitbake.pathToEnvScript": "${workspaceFolder}/envsetup.sh",
+    "bitbake.pathToBitbakeFolder": "${workspaceFolder}/poky/bitbake",
+    "bitbake.sdkImage": "core-image-minimal"
+}
