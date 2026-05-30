@@ -46,6 +46,26 @@ function do_sstate_mirror() {
 	rsync --archive --verbose --delete --exclude "*.lock" ${sstate_cache}/ ${sstate_mirror}
 }
 
+# add external sources to the build environment
+function add_external_sources() {
+	local manifests_dir=${WORKSPACE_BASE}/.repo/manifests
+	local local_manifests_dir=${WORKSPACE_BASE}/.repo/local_manifests
+
+	echo "# Adding external sources to the build environment..."
+	mkdir -p ${local_manifests_dir}
+	cp -fv ${manifests_dir}/external.xml ${local_manifests_dir}/external.xml
+
+	echo "# Syncing the external sources..."
+	repo sync
+
+	echo "# Adding external layers to the build environment..."
+	bitbake-layers add-layer ../layers/meta-textbook/meta-textbook-core-bsp-external
+}
+
+function remove_external_sources() {
+	bitbake-layers remove-layer ../layers/meta-textbook/meta-textbook-core-bsp-external
+}
+
 # source the build environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
