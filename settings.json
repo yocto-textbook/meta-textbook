@@ -14,5 +14,5 @@
     "bitbake.pathToBuildFolder": "${workspaceFolder}/build",
     "bitbake.pathToEnvScript": "${workspaceFolder}/envsetup.sh",
     "bitbake.pathToBitbakeFolder": "${workspaceFolder}/poky/bitbake",
-    "bitbake.sdkImage": "core-image-minimal"
+    "bitbake.sdkImage": "textbook-core-image"
 }

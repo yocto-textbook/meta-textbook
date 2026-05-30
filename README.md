@@ -4,6 +4,6 @@
 * the build environment, and build/run a reference image.
 ```
 $ source envsetup.sh                                                # Set up the Yocto build environment
-$ bitbake core-image-minimal                                        # Build the core-image target
-$ runqemu core-image-minimal nographic                              # Run the image in QEMU (no graphics)
+$ bitbake textbook-core-image                                       # Build the target
+$ runqemu textbook-core-image nographic                             # Run the image in QEMU (no graphics)
 ```

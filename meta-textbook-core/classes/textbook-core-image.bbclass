@@ -23,3 +23,7 @@ inherit core-image
 
 # Base size of the root filesystem in kilobytes.
 IMAGE_ROOTFS_SIZE ?= "8192"
+
+# Add extra space when systemd is enabled, since systemd requires
+# additional units, libraries, and usrmerge layout.
+IMAGE_ROOTFS_EXTRA_SPACE:append = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', ' + 4096', '', d)}"
