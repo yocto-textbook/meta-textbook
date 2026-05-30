@@ -50,4 +50,5 @@ function do_sstate_mirror() {
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export TEMPLATECONF=${WORKSPACE_BASE}/layers/meta-textbook/meta-textbook-core/conf/templates/default/
+export MACHINE=textbook
 source poky/oe-init-build-env ${WORKSPACE_BASE}/${BUILD_DIR}

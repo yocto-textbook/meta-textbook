@@ -292,7 +292,7 @@ SOURCE_MIRROR_URL = "file://${HOME}/yocto/source-mirrors"
 BB_GENERATE_MIRROR_TARBALLS = "1"
 
 # make shared state cache mirror
-SSTATE_MIRRORS = "file://.* file://${HOME}/yocto/sstate-cache/${YOCTO_RELEASE}/${DISTRO}/${MACHINE}/PATH"
+SSTATE_MIRRORS = "file://.* file://${HOME}/yocto/sstate-cache/PATH"
 SSTATE_DIR = "${TOPDIR}/sstate-cache"
 
 # buildhistory configuration
