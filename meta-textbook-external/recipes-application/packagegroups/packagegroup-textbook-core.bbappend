@@ -3,4 +3,5 @@
 # installed on the target system at runtime.
 RDEPENDS:${PN} += "\
     hello-makefile-application \
+    hello-cmake-application \
     "
