@@ -12,4 +12,5 @@ BBLAYERS ?= " \
   ##OEROOT##/../layers/meta-textbook/meta-textbook-application \
   ##OEROOT##/../layers/meta-textbook/meta-textbook-core \
   ##OEROOT##/../layers/meta-textbook/meta-textbook-core-bsp \
+  ##OEROOT##/../layers/meta-textbook/meta-thirdparty \
   "
