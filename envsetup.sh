@@ -59,14 +59,12 @@ function add_external_sources() {
 	repo sync
 
 	echo "# Adding external layers to the build environment..."
-	bitbake-layers add-layer ../layers/meta-textbook/meta-textbook-application-external
-	bitbake-layers add-layer ../layers/meta-textbook/meta-textbook-core-bsp-external
+	bitbake-layers add-layer ../layers/meta-textbook/meta-textbook-external
 }
 
 function remove_external_sources() {
 	echo "# Removing external layers from the build environment..."
-	bitbake-layers remove-layer ../layers/meta-textbook/meta-textbook-application-external
-	bitbake-layers remove-layer ../layers/meta-textbook/meta-textbook-core-bsp-external
+	bitbake-layers remove-layer ../layers/meta-textbook/meta-textbook-external
 }
 
 # source the build environment
