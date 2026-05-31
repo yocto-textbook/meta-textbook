@@ -13,12 +13,12 @@ EXTERNALSRC = "${COREBASE}/../external/hello-module"
 EXTERNALSRC_BUILD = "${EXTERNALSRC}"
 
 # Use the latest commit from the external Git source tree.
-# This ensures SRCPV is generated based on the current Git revision.
 SRCREV = "${AUTOREV}"
 
-# Construct the package version using the Git-based SRCPV.
+# Construct the package version using the external Git revision.
 # This prevents version-going-backwards errors when using external source trees.
-PV = "${HELLO_MODULE_VERSION}+git${SRCPV}"
+EXTERNALSRC_GIT_REV := "${@__import__('subprocess').check_output(['git', '-C', d.getVar('EXTERNALSRC'), 'rev-parse', '--short=10', 'HEAD'], text=True).strip()}"
+PV = "${HELLO_MODULE_VERSION}+git0+${EXTERNALSRC_GIT_REV}"
 
 # -----------------------------------------------------------------------------
 # Disable the original fetch mechanism.

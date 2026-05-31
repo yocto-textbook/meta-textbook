@@ -6,12 +6,12 @@ inherit externalsrc
 EXTERNALSRC = "${COREBASE}/../external/linux"
 
 # Use the latest commit from the external Git source tree.
-# This ensures SRCPV is generated based on the current Git revision.
 SRCREV = "${AUTOREV}"
 
-# Construct the package version using the kernel version plus the Git-based SRCPV.
-# This prevents version‑going‑backwards errors when using external source trees.
-PV = "${LINUX_VERSION}+git${SRCPV}"
+# Construct the package version using the external Git revision.
+# This prevents version-going-backwards errors when using external source trees.
+EXTERNALSRC_GIT_REV := "${@__import__('subprocess').check_output(['git', '-C', d.getVar('EXTERNALSRC'), 'rev-parse', '--short=10', 'HEAD'], text=True).strip()}"
+PV = "${LINUX_VERSION}+git0+${EXTERNALSRC_GIT_REV}"
 
 
 # -----------------------------------------------------------------------------
