@@ -19,4 +19,5 @@ BBLAYERS ?= " \
   ##OEROOT##/../layers/meta-openembedded/meta-python \
   ##OEROOT##/../layers/meta-selinux \
   ##OEROOT##/../layers/meta-textbook/meta-textbook-selinux \
+  ##OEROOT##/../layers/meta-textbook/meta-textbook-sdk \
   "

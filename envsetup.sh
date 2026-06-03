@@ -67,6 +67,19 @@ function remove_external_sources() {
 	bitbake-layers remove-layer ../layers/meta-textbook/meta-textbook-external
 }
 
+# install the SDK for the target platform
+function install_sdk() {
+	local sdk_dir=${WORKSPACE_BASE}/sdk
+	local sdk_script=textbook-systemd-distro-glibc-x86_64-textbook-core-image-cortexa57-textbook-toolchain-1.0.0.sh
+
+	echo "# Populating SDK for textbook-core-image..."
+	mkdir -p ${sdk_dir}
+	bitbake textbook-core-image -c populate_sdk
+
+	echo "# Installing SDK to ${sdk_dir}..."
+	${WORKSPACE_BASE}/${BUILD_DIR}/tmp/deploy/sdk/${sdk_script} ${sdk_dir}/
+}
+
 # source the build environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
