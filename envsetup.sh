@@ -76,8 +76,21 @@ function install_sdk() {
 	mkdir -p ${sdk_dir}
 	bitbake textbook-core-image -c populate_sdk
 
-	echo "# Installing SDK to ${sdk_dir}..."
-	${WORKSPACE_BASE}/${BUILD_DIR}/tmp/deploy/sdk/${sdk_script} ${sdk_dir}/
+	echo "# Installing SDK ..."
+	${WORKSPACE_BASE}/${BUILD_DIR}/tmp/deploy/sdk/${sdk_script}
+}
+
+# install the toolchain for the target platform
+function install_toolchain() {
+	local toolchain_dir=${WORKSPACE_BASE}/toolchain
+	local toolchain_script=textbook-systemd-distro-glibc-x86_64-meta-toolchain-cortexa57-textbook-toolchain-1.0.0.sh
+
+	echo "# Populating toolchain for textbook-core-image..."
+	mkdir -p ${toolchain_dir}
+	bitbake meta-toolchain
+
+	echo "# Installing toolchain ..."
+	${WORKSPACE_BASE}/${BUILD_DIR}/tmp/deploy/sdk/${toolchain_script}
 }
 
 # source the build environment
