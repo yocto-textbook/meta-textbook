@@ -77,7 +77,7 @@ function install_sdk() {
 	bitbake textbook-core-image -c populate_sdk
 
 	echo "# Installing SDK ..."
-	${WORKSPACE_BASE}/${BUILD_DIR}/tmp/deploy/sdk/${sdk_script}
+	${WORKSPACE_BASE}/${BUILD_DIR}/tmp/deploy/sdk/${sdk_script} -y -d ${sdk_dir}
 }
 
 # install the toolchain for the target platform
@@ -90,7 +90,7 @@ function install_toolchain() {
 	bitbake meta-toolchain
 
 	echo "# Installing toolchain ..."
-	${WORKSPACE_BASE}/${BUILD_DIR}/tmp/deploy/sdk/${toolchain_script}
+	${WORKSPACE_BASE}/${BUILD_DIR}/tmp/deploy/sdk/${toolchain_script} -y -d ${toolchain_dir}
 }
 
 # source the build environment
